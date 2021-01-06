@@ -8,6 +8,13 @@ Endpoints:
 
 ## Usage
 
+Environment variables:
+
+|name|description|
+|----|-----------|
+|MQTT_HOST| Usually the name of the mosquitto block in your docker-composer.yml |
+|API_KEY| Setting your own api key here will expose more data through the api. Without the api key you will still get enough data to feed some things, like the TeslaData-Widget. |
+
 Add to docker-compose.yml: 
 
     teslamate_mqtt_api:
@@ -16,6 +23,7 @@ Add to docker-compose.yml:
       restart: always
       environment:
         - MQTT_HOST=mosquitto
+        - API_KEY=define_your_own_here
       ports:
         - 3040:3000
 
@@ -25,5 +33,6 @@ Check the /cars endpoint to make a note of the id of the car you want to expose.
 Follow the instructions in TeslaData-Widget to use a custom API, and use this as your 
 APIurl:
 
-http(s)://YOUR_HOST:3040/car/CAR_ID
+http(s)://{YOUR_HOST}:3040/car/{CAR_ID}?api_key={THE_ONE_DEFINED_IN_DOCKER_COMPOSER}
 
+If you didn't set the API_KEY value in docker-composer.yml you can remove that part of the URL.
