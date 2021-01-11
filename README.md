@@ -14,6 +14,8 @@ Environment variables:
 |----|-----------|
 |MQTT_HOST| Usually the name of the mosquitto block in your docker-composer.yml |
 |API_KEY| Setting your own api key here will expose more data through the api. Without the api key you will still get enough data to feed some things, like the TeslaData-Widget. |
+|TEMPERATURE_UNIT| The unit of temperature ("C" or "F") |
+|DISTANCE_UNIT| The unit for measuring distance ("km" or "imperial")|
 
 Add to docker-compose.yml: 
 
@@ -24,6 +26,8 @@ Add to docker-compose.yml:
       environment:
         - MQTT_HOST=mosquitto
         - API_KEY=define_your_own_here
+        - TEMPERATURE_UNIT=C
+        - DISTANCE_UNIT=km
       ports:
         - 3040:3000
 
