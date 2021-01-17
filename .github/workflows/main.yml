@@ -4,7 +4,7 @@ name: ci
 
 on:
   push:
-    branches: github-actions
+    branches: master
 
 jobs:
   multi:
@@ -35,6 +35,8 @@ jobs:
           push: true
           tags: |
             thomaslandro/teslamate-mqtt-api:github-actions
+            thomaslandro/teslamate-mqtt-api:1.0
+            thomaslandro/teslamate-mqtt-api:1.0.0
 
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v2
